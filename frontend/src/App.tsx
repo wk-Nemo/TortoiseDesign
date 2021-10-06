@@ -1,6 +1,8 @@
 import React from 'react'; 
 import Button, { ButtonType, ButtonSize } from './components/Button/button';
 import Alert, { AlertType } from './components/Alert/alert';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem'
 
 function App() {
   return (
@@ -28,6 +30,17 @@ function App() {
           href="http://www.baidu.com"
         >Disabled Link</Button>
       </div>
+      <Menu defaultIndex={0}>
+        <MenuItem>
+          cool Link 1
+        </MenuItem>
+        <MenuItem>
+          cool Link 2
+        </MenuItem>
+        <MenuItem>
+          cool Link 3
+        </MenuItem>
+      </Menu>
       <div className="item alerts">
         <Alert
           closeable={true}
