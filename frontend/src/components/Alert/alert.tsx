@@ -42,7 +42,7 @@ const Alert: React.FC<BaseAlertProps> = (props) => {
   }
 
   return (
-    <div className={classes}>
+    <div className={classes} style={{display: hide ? 'none' : ''}}>
       <div className="alert-content">
         <div className="alert-content-message">{message}</div>
         <div className="alert-content-description">{description}</div>
