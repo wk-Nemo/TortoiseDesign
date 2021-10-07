@@ -36,7 +36,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState(defaultIndex)
 
   const classes = classNames('tortoise-menu', className, {
-    'menu-horizontal': mode !== 'horizontal',
+    'menu-horizontal': mode === 'horizontal',
     'menu-vertical': mode === 'vertical'
   })
 

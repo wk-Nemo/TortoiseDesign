@@ -8,6 +8,7 @@
   box-shadow: $menu-box-shadow;
   >.menu-item {
     padding: $menu-item-padding-y $menu-item-padding-x;
+    margin: 0 0.5rem;
     cursor: pointer;
     transition: $menu-transition;
     &:hover, &:focus {
@@ -16,29 +17,37 @@
     &.is-disabled {
       color: $menu-item-disabled-color;
       pointer-events: none;
-      cursor: default;
+      cursor: not-allowed;
     }
     &.is-active, &:hover {
       color: $menu-item-active-color;
       border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
+
   .submenu-item {
     position: relative;
   }
+  
   .tortoise-submenu {
     display: none;
     list-style:none;
     padding-left: 0;
     white-space: nowrap;
-    //transition: $menu-transition;
+   
+
     .menu-item {
+      margin: 5px 0;
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
       transition: $menu-transition;
       color: $body-color;
-      &.is-active, &:hover {
-        color: $menu-item-active-color !important;
+      &.is-active {
+        background-color: #e6f7ff;
+        color: #1890ff !important;
+      }
+      &:hover {
+        color: #1890ff !important;
       }
     }
   }
@@ -51,7 +60,7 @@
   >.menu-item {
     border-bottom: $menu-item-active-border-width solid transparent;
   }
-  .viking-submenu {
+  .tortoise-submenu {
     position: absolute;
     background: $white;
     z-index: 100;
@@ -65,13 +74,35 @@
 .menu-vertical {
   flex-direction: column;
   border-bottom: 0px;
-  margin: 10px 20px;
   border-right: $menu-border-width solid $menu-border-color;
+  box-shadow: none;
+  text-align: center;
+  .tortoise-submenu {
+    background-color: rgb(250,250,250);
+  }
+  .submenu-item {
+    margin: 0 !important;
+  }
+  .submenu-title {
+    margin: 10px 0;
+    &.is-active {
+      background-color: #e6f7ff;
+      color: #1890ff !important;
+    }
+    &:hover {
+      color: #1890ff !important;
+    }
+  }
   >.menu-item {
-    border-left: $menu-item-active-border-width solid transparent;
+    display: inline-flex;
+    flex-direction: column;
+    // border-left: $menu-item-active-border-width solid transparent;
+    border-bottom: none;
+    padding: 0;
+    margin: 10px 0;
     &.is-active, &:hover {
       border-bottom: 0px;
-      border-left: $menu-item-active-border-width solid $menu-item-active-color;
+      // border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
 }

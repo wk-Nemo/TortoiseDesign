@@ -39,6 +39,24 @@ function App() {
         <MenuItem>
           cool Link 1
         </MenuItem>
+        <MenuItem disabled>
+          cool Link 2
+        </MenuItem>
+        <MenuItem>
+          cool Link 3
+        </MenuItem>
+        <MenuItem>
+          cool Link 4
+        </MenuItem>
+      </Menu>
+      <Menu
+        defaultIndex='0'
+        defaultOpenSubMenu={['2']}
+        onSelect={(index) => {console.log(index)}}
+      >
+        <MenuItem>
+          cool Link 1
+        </MenuItem>
         <SubMenu title="dropdown">
           <MenuItem>
             dropdown 1
@@ -51,22 +69,54 @@ function App() {
           cool Link 3
         </MenuItem>
       </Menu>
-      {/* <Menu defaultIndex={0} mode="vertical" onSelect={(index) => {alert(index)}}>
+      {/* <Menu
+        defaultIndex='0'
+        mode='vertical'
+        defaultOpenSubMenu={['2']}
+        className="menu-width"
+        onSelect={(index) => {console.log(index)}}
+      >
         <MenuItem>
           cool Link 1
         </MenuItem>
-        <SubMenu title="dropdown">
-          <MenuItem>
-            dropdown 1
-          </MenuItem>
-          <MenuItem>
-            dropdown 2
-          </MenuItem>
-        </SubMenu>
-        <MenuItem index={3}>
+        <MenuItem disabled>
+          cool Link 2
+        </MenuItem>
+        <MenuItem>
           cool Link 3
         </MenuItem>
+        <MenuItem>
+          cool Link 4
+        </MenuItem>
       </Menu> */}
+      <Menu
+        defaultIndex='0'
+        mode='vertical'
+        defaultOpenSubMenu={['2']}
+        className="menu-width"
+        onSelect={(index) => {console.log(index)}}
+      >
+        <MenuItem>
+          cool Link 1
+        </MenuItem>
+        <MenuItem disabled>
+          cool Link 2
+        </MenuItem>
+        <SubMenu title="cool Link3">
+          <MenuItem>
+            drop1
+          </MenuItem>
+          <MenuItem>
+            drop2
+          </MenuItem>
+          <MenuItem>
+            drop3
+          </MenuItem>
+        </SubMenu>
+        <MenuItem>
+          cool Link 4
+        </MenuItem>
+      </Menu>
       {/* <div className="item alerts">
         <Alert
           closeable={true}

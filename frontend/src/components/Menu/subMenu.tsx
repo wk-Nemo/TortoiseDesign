@@ -22,8 +22,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const isOpen = (index && context.mode === 'vertical') ? openSubMenus.includes(index) : false
   const [menuOpen, setOpen] = useState(isOpen)
 
+  const contextFirstIndex = context.index.split('-')[0]
   const classes = classNames('menu-item submenu-item', className, {
-    'is-active': context.index === index
+    'is-active': contextFirstIndex === index
   })
 
   const handleClick = (e: React.MouseEvent) => {
@@ -47,7 +48,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const clickEvents = context.mode === 'vertical' ? {
     onClick: handleClick
   } : {}
-  const hoverEvents = context.mode !== 'vertical' ? {
+  const hoverEvents = context.mode === 'horizontal' ? {
     onMouseEnter: (e: React.MouseEvent) => { handleMouse(e, true)},
     onMouseLeave: (e: React.MouseEvent) => { handleMouse(e, false)}
   } : {}
@@ -56,15 +57,19 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     const subMenuClasses = classNames('tortoise-submenu', {
       'menu-opened': menuOpen
     })
+    
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
-      if(childElement.type.displayName === 'MenuItem') {
-        return React.cloneElement(childElement, {
-          index: `${index}-${i}`
-        })
-      } else {
+      const { displayName } = childElement.type
+
+      console.log(displayName)
+      if(displayName !== 'MenuItem') {
         console.error("Warning: SubMenu has a child which is not a MenuItem component")
       }
+
+      return React.cloneElement(childElement, {
+        index: `${index}-${i}`
+      })
     })
 
     return (
