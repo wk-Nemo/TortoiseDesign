@@ -11,6 +11,7 @@
     margin: 0 0.5rem;
     cursor: pointer;
     transition: $menu-transition;
+    user-select: none;
     &:hover, &:focus {
       text-decoration: none;
     }
@@ -34,8 +35,6 @@
     list-style:none;
     padding-left: 0;
     white-space: nowrap;
-   
-
     .menu-item {
       margin: 5px 0;
       padding: $menu-item-padding-y $menu-item-padding-x;
@@ -76,33 +75,45 @@
   border-bottom: 0px;
   border-right: $menu-border-width solid $menu-border-color;
   box-shadow: none;
-  text-align: center;
-  .tortoise-submenu {
-    background-color: rgb(250,250,250);
+  text-align: left;
+  .submenu-title-content {
+    display: flex;
+    position: relative;
+    padding: 0.5rem 1rem;
+    .submenu-title {
+      flex: 1;
+      margin: 10px 0;
+      &.is-active {
+        background-color: #e6f7ff;
+        color: #1890ff !important;
+      }
+      &:hover {
+        color: #1890ff !important;
+      }
+    }
+    .submenu-icon {
+      justify-self: center;
+      align-self: center;
+    }
   }
   .submenu-item {
     margin: 0 !important;
-  }
-  .submenu-title {
-    margin: 10px 0;
-    &.is-active {
-      background-color: #e6f7ff;
-      color: #1890ff !important;
-    }
-    &:hover {
-      color: #1890ff !important;
+    padding: 0 !important;
+    .tortoise-submenu {
+      background-color: rgb(250,250,250);
+      .menu-item {
+        padding-left: 2rem;
+      }
     }
   }
   >.menu-item {
     display: inline-flex;
     flex-direction: column;
-    // border-left: $menu-item-active-border-width solid transparent;
     border-bottom: none;
-    padding: 0;
     margin: 10px 0;
+    padding: 0.5rem 1rem;
     &.is-active, &:hover {
       border-bottom: 0px;
-      // border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
 }
