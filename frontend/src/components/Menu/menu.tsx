@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { MenuItemProps } from './menuItem'
 
 type SelectCallback = (selectIndex: string) => void
-
 type MenuMode = 'horizontal' | 'vertical'
 export interface MenuProps {
   defaultIndex?: string;

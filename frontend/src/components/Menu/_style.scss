@@ -49,9 +49,10 @@
         color: #1890ff !important;
       }
     }
-  }
-  .tortoise-submenu.menu-opened {
-    display: block;
+
+    &.menu-opened {
+      display: block;
+    }
   }
 }
 

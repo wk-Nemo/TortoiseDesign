@@ -22,8 +22,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     children,
   } = props
 
+  const isVertical = context.mode === 'vertical'
+
   const openSubMenus = context.defaultOpenSubMenu as Array<string>
-  const isOpen = (index && context.mode === 'vertical') ? openSubMenus.includes(index) : false
+  const isOpen = (index && isVertical) ? openSubMenus.includes(index) : false
   const [menuOpen, setOpen] = useState(isOpen)
 
   const contextFirstIndex = context.index.split('-')[0]
@@ -33,10 +35,6 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    // 调用改变active
-    // if(context.onSelect && (typeof index === 'string')) {
-    //   context.onSelect(index)
-    // }
     setOpen(!menuOpen)
   }
 
@@ -49,10 +47,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     }, 300)
   }
 
-  const clickEvents = context.mode === 'vertical' ? {
-    onClick: handleClick
-  } : {}
-  const hoverEvents = context.mode === 'horizontal' ? {
+  const clickEvents = isVertical ? { onClick: handleClick } : {}
+  const hoverEvents = !isVertical ? {
     onMouseEnter: (e: React.MouseEvent) => { handleMouse(e, true)},
     onMouseLeave: (e: React.MouseEvent) => { handleMouse(e, false)}
   } : {}
@@ -77,9 +73,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     })
 
     return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
+        <ul className={subMenuClasses}>
+          {childrenComponent}
+        </ul>
     )
   }
 
@@ -93,7 +89,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         <div className="submenu-title"> 
           {title}
         </div>
-        <Icon className="submenu-icon" theme="primary" icon="angle-down"></Icon>
+        { context.mode === 'vertical' &&
+          <Icon className="submenu-icon" theme="primary" icon="angle-down"></Icon>
+        }
       </div>
       {renderChildren()}
     </li>
