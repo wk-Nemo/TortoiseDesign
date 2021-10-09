@@ -122,7 +122,18 @@ describe('test button component', () => {
 
 ## Menu 组件
 
+已完成部分：
 
+- Menu组件
+- MenuItem组件
+- SubMenu组件
+
+
+
+待优化部分：
+
+- 添加ItemGroup
+- SubMenu收缩动画添加
 
 
 
