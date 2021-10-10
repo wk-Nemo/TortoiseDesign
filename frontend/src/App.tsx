@@ -4,6 +4,7 @@
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu';
+import Input from './components/Input/input';
 
 function App() {
   return (
@@ -136,6 +137,12 @@ function App() {
           type={AlertType.warning}
         ></Alert>
       </div> */}
+      <div className="input-wrapper">
+        <Input  placeholder="small" size="small"></Input>
+        <Input  placeholder="Basic usage" ></Input>
+        <Input  placeholder="large" size="large"></Input>
+        <Input  placeholder="disabled" disabled={true}></Input>
+      </div>
     </div>
   );
 }

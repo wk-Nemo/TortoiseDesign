@@ -1,3 +1,13 @@
 .menu-width {
   width: 20vw;
 }
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  .tortoise-input-wrapper {
+    margin: 20px 0;
+  }
+}
