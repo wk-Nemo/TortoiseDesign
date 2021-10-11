@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import Icon from '../Icon/icon'
 import Transition from '../Transition/transition'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-
-library.add(fas)
 
 export enum AlertType {
   success = 'success',

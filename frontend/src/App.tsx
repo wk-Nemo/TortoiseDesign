@@ -1,9 +1,9 @@
 // import React from 'react'; 
 // import Button, { ButtonType, ButtonSize } from './components/Button/button';
 // import Alert, { AlertType } from './components/Alert/alert';
-import Menu from './components/Menu/menu';
-import MenuItem from './components/Menu/menuItem'
-import SubMenu from './components/Menu/subMenu';
+// import Menu from './components/Menu/menu';
+// import MenuItem from './components/Menu/menuItem'
+// import SubMenu from './components/Menu/subMenu';
 import Input from './components/Input/input';
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
           href="http://www.baidu.com"
         >Disabled Link</Button>
       </div> */}
-      <Menu
+      {/* <Menu
         defaultIndex='0'
         defaultOpenSubMenu={['2']}
         onSelect={(index) => {console.log(index)}}
@@ -69,7 +69,7 @@ function App() {
         <MenuItem>
           cool Link 3
         </MenuItem>
-      </Menu>
+      </Menu> */}
       {/* <Menu
         defaultIndex='0'
         mode='vertical'
@@ -90,7 +90,7 @@ function App() {
           cool Link 4
         </MenuItem>
       </Menu> */}
-      <Menu
+      {/* <Menu
         defaultIndex='0'
         mode='vertical'
         defaultOpenSubMenu={['2']}
@@ -117,7 +117,7 @@ function App() {
         <MenuItem>
           cool Link 4
         </MenuItem>
-      </Menu>
+      </Menu> */}
       {/* <div className="item alerts">
         <Alert
           closeable={true}
@@ -142,6 +142,12 @@ function App() {
         <Input  placeholder="Basic usage" ></Input>
         <Input  placeholder="large" size="large"></Input>
         <Input  placeholder="disabled" disabled={true}></Input>
+        <Input
+          addonBefore="http://"
+          addonAfter=".com"
+          placeholder="Basic usage"
+        ></Input>
+        <Input icon="user" placeholder="Basic usage" ></Input>
       </div>
     </div>
   );
